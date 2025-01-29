@@ -6,9 +6,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 // Register the necessary chart components
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const QuestionAnalysis: React.FC = () => {
-	const score: number = 40;
-
+const QuestionAnalysis: React.FC<{ score: number }> = ({ score }) => {
 	const message: string =
 		score >= 70
 			? "Great job! You're doing really well!"
@@ -27,7 +25,7 @@ const QuestionAnalysis: React.FC = () => {
 		],
 	};
 
-	const options: any = {
+	const options = {
 		responsive: true,
 		plugins: {
 			tooltip: {

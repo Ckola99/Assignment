@@ -8,19 +8,20 @@ import {
 	LinearScale,
 	Tooltip,
 	Legend,
-	TooltipItem,
 } from "chart.js";
 
 // Register necessary chart components
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
-const SyllabusAnalysis = () => {
+const SyllabusAnalysis: React.FC<{
+	syllabusScores: { subject: string; score: number }[];
+}> = ({ syllabusScores }) => {
 	const data = {
-		labels: ["Math", "Science", "English", "Economics"],
+		labels: syllabusScores.map((item) => item.subject),
 		datasets: [
 			{
 				label: "Progress",
-				data: [80, 70, 70, 70],
+				data: syllabusScores.map((item) => item.score),
 				backgroundColor: "#2196F3",
 				borderRadius: 5,
 				barThickness: 20,
@@ -34,17 +35,17 @@ const SyllabusAnalysis = () => {
 		plugins: {
 			tooltip: {
 				callbacks: {
-					label: (tooltipItem: TooltipItem<'bar'>) =>
-						`${tooltipItem.raw}%`, // Tooltip displaying percentage
+					label: (tooltipItem: { raw: number }) =>
+						`${tooltipItem.raw}%`,
 				},
 			},
 		},
 		scales: {
 			x: {
-				max: 100, // Maximum value (100%)
+				max: 100,
 			},
 			y: {
-				beginAtZero: true, // Start the scale at zero
+				beginAtZero: true,
 			},
 		},
 	};

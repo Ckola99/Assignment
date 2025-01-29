@@ -12,16 +12,23 @@ const Navbar = () => {
 				<h1 className="font-bold">WhatBytes</h1>
 			</div>
 
-			<ul className="md:flex gap-2 hidden">
+			<ul className="md:flex gap-2 hidden ">
 				<li>Dashboard</li>
-				<li className="underline text-blue-500 underline-offset-4 font-bold">
-					Skills Test
-				</li>
+				<a href="">
+					<li className="cursor-pointer underline text-blue-500 underline-offset-4 font-bold">
+						Skills Test
+					</li>
+				</a>
 				<li>Internship</li>
 			</ul>
 
 			<div className="flex items-center gap-2 p-1 rounded-xl ">
-				<h2 className="font-bold">@Kola.dev</h2>
+				<a
+					href="https://github.com/Ckola99"
+					target="_blank"
+				>
+					<h2 className="font-bold">@Kola.dev</h2>
+				</a>
 				<Image
 					src={avi}
 					alt="logo"

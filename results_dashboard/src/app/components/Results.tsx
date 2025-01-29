@@ -18,6 +18,15 @@ const Results: React.FC = () => {
 
 	const closeModal = () => setOpenModal(false);
 
+	const scorePercentage = (correctAnswers / totalQuestions) * 100;
+
+	const syllabusScores = [
+		{ subject: "Math", score: 80 },
+		{ subject: "Science", score: 70 },
+		{ subject: "English", score: 70 },
+		{ subject: "Economics", score: 70 },
+	];
+
 	const handleSave = (): void => {
 		closeModal(); // Close the modal after saving
 	};
@@ -94,8 +103,10 @@ const Results: React.FC = () => {
 				<ComparisonGraph percentile={percentile} />
 			</div>
 			<div className="flex flex-col w-full gap-2 md:flex-row h-fit">
-				<SyllabusAnalysis />
-				<QuestionAnalysis />
+				<SyllabusAnalysis
+					syllabusScores={syllabusScores}
+				/>
+				<QuestionAnalysis score={scorePercentage} />
 			</div>
 
 			{openModal && (
