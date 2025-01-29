@@ -31,7 +31,7 @@ const QuestionAnalysis: React.FC<{ score: number }> = ({ score }) => {
 			tooltip: {
 				callbacks: {
 					label: (tooltipItem: { raw: number }) =>
-						`${tooltipItem.raw}%`,
+						`${tooltipItem.raw as number}%`,
 				},
 			},
 		},

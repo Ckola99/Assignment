@@ -48,7 +48,6 @@ const Modal: React.FC<ModalProps> = ({
 		register,
 		handleSubmit,
 		formState: { errors },
-		setValue,
 	} = useForm({
 		resolver: yupResolver(schema),
 		defaultValues: {
@@ -69,7 +68,7 @@ const Modal: React.FC<ModalProps> = ({
 
 	return (
 		<div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center">
-			<div className="bg-white p-4 rounded-md shadow-lg w-1/3">
+			<div className="bg-white p-4 rounded-md shadow-lg w-1/3 min-w-[300px]">
 				<h2 className="font-bold text-xl mb-4">
 					Update Test Results
 				</h2>
