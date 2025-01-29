@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend, TooltipItem } from "chart.js";
 
 // Register the necessary chart components
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -30,8 +30,9 @@ const QuestionAnalysis: React.FC<{ score: number }> = ({ score }) => {
 		plugins: {
 			tooltip: {
 				callbacks: {
-					label: (tooltipItem: { raw: number }) =>
-						`${tooltipItem.raw as number}%`,
+					label: (
+						tooltipItem: TooltipItem<"doughnut">
+					) => `${tooltipItem.raw as number}%`,
 				},
 			},
 		},
