@@ -13,8 +13,8 @@ const Results: React.FC = () => {
 
 	const [rank, setRank] = useState<number>(1);
 	const [percentile, setPercentile] = useState<number>(90);
-	const [correctAnswers, setCorrectAnswers] = useState<number>(12); // Correct answers
-	const [totalQuestions] = useState<number>(15); // Total questions, assuming it's constant
+	const [correctAnswers, setCorrectAnswers] = useState<number>(12);
+	const [totalQuestions] = useState<number>(15); 
 
 	const closeModal = () => setOpenModal(false);
 
@@ -28,7 +28,7 @@ const Results: React.FC = () => {
 	];
 
 	const handleSave = (): void => {
-		closeModal(); // Close the modal after saving
+		closeModal();
 	};
 
 	const formattedResult = `${correctAnswers}/${totalQuestions}`;

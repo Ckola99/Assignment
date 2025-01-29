@@ -164,7 +164,7 @@ const Modal: React.FC<ModalProps> = ({
 						</button>
 						<button
 							type="button"
-							onClick={closeModal} // Close modal without saving
+							onClick={closeModal} 
 							className="border p-2 rounded-md bg-red-500 text-white"
 						>
 							Cancel

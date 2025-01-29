@@ -29,9 +29,8 @@ interface ComparisonGraphProps {
 }
 
 const ComparisonGraph: React.FC<ComparisonGraphProps> = ({ percentile }) => {
-	const averagePercentile = 72; // Define the average percentile
+	const averagePercentile = 72;
 
-	// Determine the appropriate message based on comparison
 	let comparisonMessage = "";
 	if (percentile > averagePercentile) {
 		comparisonMessage = `higher than the average percentile of`;
@@ -103,7 +102,7 @@ const ComparisonGraph: React.FC<ComparisonGraphProps> = ({ percentile }) => {
 					/>
 					{/* Reference line showing the average percentile */}
 					<ReferenceLine
-						x="50" // Assuming 50% is the average
+						x="50"
 						stroke="green"
 						strokeDasharray="3 3"
 						label="Average Percentile"
