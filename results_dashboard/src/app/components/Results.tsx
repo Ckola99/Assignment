@@ -14,13 +14,22 @@ const Results: React.FC = () => {
 	const [rank, setRank] = useState<number>(1);
 	const [percentile, setPercentile] = useState<number>(90);
 	const [correctAnswers, setCorrectAnswers] = useState<number>(12);
-	const [totalQuestions] = useState<number>(15); 
+	const [totalQuestions] = useState<number>(15);
 
 	const closeModal = () => setOpenModal(false);
 
-	const scorePercentage = (correctAnswers / totalQuestions) * 100;
+	const scorePercentage: number =
+		totalQuestions > 0
+			? (correctAnswers / totalQuestions) * 100
+			: 0;
 
-	const syllabusScores = [
+
+	interface SyllabusScore {
+		subject: string;
+		score: number;
+	}
+
+	const syllabusScores: SyllabusScore[] = [
 		{ subject: "Math", score: 80 },
 		{ subject: "Science", score: 70 },
 		{ subject: "English", score: 70 },
