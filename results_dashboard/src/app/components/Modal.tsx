@@ -1,5 +1,5 @@
 import React from "react";
-import { useForm } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
@@ -13,6 +13,13 @@ interface ModalProps {
 	setCorrectAnswers: React.Dispatch<React.SetStateAction<number>>;
 	handleSave: () => void;
 	closeModal: () => void;
+}
+
+// Define the type for the form data
+interface FormData {
+	rank: number;
+	percentile: number;
+	correctAnswers: number;
 }
 
 // Yup validation schema
@@ -48,7 +55,7 @@ const Modal: React.FC<ModalProps> = ({
 		register,
 		handleSubmit,
 		formState: { errors },
-	} = useForm({
+	} = useForm<FormData>({
 		resolver: yupResolver(schema),
 		defaultValues: {
 			rank,
@@ -58,7 +65,7 @@ const Modal: React.FC<ModalProps> = ({
 	});
 
 	// Handle form submission
-	const onSubmit = (data: any) => {
+	const onSubmit: SubmitHandler<FormData> = (data) => {
 		setRank(data.rank);
 		setPercentile(data.percentile);
 		setCorrectAnswers(data.correctAnswers);
@@ -164,7 +171,7 @@ const Modal: React.FC<ModalProps> = ({
 						</button>
 						<button
 							type="button"
-							onClick={closeModal} 
+							onClick={closeModal}
 							className="border p-2 rounded-md bg-red-500 text-white"
 						>
 							Cancel
