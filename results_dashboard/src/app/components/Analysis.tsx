@@ -8,6 +8,7 @@ import {
 	LinearScale,
 	Tooltip,
 	Legend,
+	TooltipItem,
 } from "chart.js";
 
 // Register necessary chart components
@@ -35,8 +36,9 @@ const SyllabusAnalysis: React.FC<{
 		plugins: {
 			tooltip: {
 				callbacks: {
-					label: (tooltipItem: { raw: number }) =>
-						`${tooltipItem.raw}%`,
+					label: (
+						tooltipItem: TooltipItem<"bar">
+					) => `${tooltipItem.raw}%`,
 				},
 			},
 		},
