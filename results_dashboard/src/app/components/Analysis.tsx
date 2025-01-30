@@ -21,7 +21,7 @@ const SyllabusAnalysis: React.FC<{
 		labels: syllabusScores.map((item) => item.subject),
 		datasets: [
 			{
-				label: "Progress",
+				label: "Percentage",
 				data: syllabusScores.map((item) => item.score),
 				backgroundColor: "#2196F3",
 				borderRadius: 5,
